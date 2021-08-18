@@ -3,14 +3,11 @@ import os
 import glob
 from instagrapi import Client
 
-
-
-USERNAME="jvsrvictor127"
-PASSWORD="jvsr@127"
+USERNAME="username"
+PASSWORD="password"
 
 #Get the DOF(Day of Week)
-#DOF=datetime.datetime.today().weekday()
-DOF=3
+DOF=datetime.datetime.today().weekday()
 
 #Test if it is post day
 if(DOF==1 or DOF==3 or DOF==6):
@@ -18,40 +15,38 @@ if(DOF==1 or DOF==3 or DOF==6):
     cl.login(USERNAME, PASSWORD)
 
     if(DOF==1):
-        Day="TER"
+        Day="Tuesday"
     elif(DOF==3):
-        Day="QUIN"
+        Day="Thursday"
     elif(DOF==6):
-        Day="DOM"
+        Day="Sunday"
 
     #First part of the Story
-    fileName1="\STORIES - P1.mp4"
+    fileName1="\File 1.mp4"
 
     media_path1 = Day + fileName1
     cl.video_upload_to_story(
-        media_path1,
-        "Credits @adw0rd",
+        media_path1
     )
 
     #Second part of the Story
-    fileName2="\STORIES - P2.mp4"
+    fileName2="\File 2.mp4"
 
     media_path2 = Day + fileName2
     cl.video_upload_to_story(
-        media_path2,
-        "Credits @adw0rd",
+        media_path2
     )
 
     #Delete all the content of folders
     if(DOF==6):
-        files = glob.glob('TER/*')
+        files = glob.glob('Tuesday/*')
         for f in files:
             os.remove(f)
 
-        files = glob.glob('QUIN/*')
+        files = glob.glob('Thursday/*')
         for f in files:
             os.remove(f)
 
-        files = glob.glob('DOM/*')
+        files = glob.glob('Sunday/*')
         for f in files:
             os.remove(f)
