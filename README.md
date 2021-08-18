@@ -1,4 +1,4 @@
-# instagram-asp
+# Instagram Scheduled Stories
 
 Instagram doesn't have a feature to schedule Stories natively through Creators Studio,
 and there is no free tool on the market to do it.
